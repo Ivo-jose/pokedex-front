@@ -5,11 +5,13 @@ import { CommonModule } from '@angular/common';
 import { RoutingModule } from './routing.module';
 //Components pages
 import { HomeComponent } from './home/home.component';
+import { DetailsComponent } from './details/details.component';
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,
