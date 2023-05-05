@@ -18,7 +18,8 @@ import { PokeListComponent } from './poke-list/poke-list.component';
   ],
   exports: [
     PokeHeaderComponent,
-    PokeSearchComponent
+    PokeSearchComponent,
+    PokeListComponent
   ],
   imports: [
     CommonModule,
