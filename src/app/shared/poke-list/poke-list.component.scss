@@ -9,9 +9,6 @@ $padding: rem-calc(20);
   flex-wrap: wrap;
   padding: $padding 0;
 
-  a {
-    color: var(--primary-color);
-  }
   .pokemon {
     position: relative;
     display: flex;
@@ -21,6 +18,8 @@ $padding: rem-calc(20);
     margin-bottom: rem-calc(10);
     padding: $padding ;
     border-radius: rem-calc(10);
+    text-decoration: none;
+    color: var(--primary-color);
 
     &__status {
       h2 {
