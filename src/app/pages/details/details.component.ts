@@ -16,24 +16,25 @@ export class DetailsComponent implements OnInit {
   private urlPokemon: string = 'https://pokeapi.co/api/v2/pokemon';
   private urlName: string = 'https://pokeapi.co/api/v2/pokemon-species';
 
+  public pokemon:any;
+
   constructor(
       private activedRoute: ActivatedRoute,
       private pokeApiService: PokeApiService,
   ) {}
 
   ngOnInit(): void {
-    this.pokemon;
+    this.getpokemon;
   }
 
-  get pokemon() {
+  get getpokemon() {
     const id = this.activedRoute.snapshot.params['id'];
     const pokemon = this.pokeApiService.apiGetPokemons(`${this.urlPokemon}/${id}`);
     const name = this.pokeApiService.apiGetPokemons(`${this.urlName}/${id}`);
 
-    return forkJoin([pokemon,name]).subscribe({
-      next: res => console.log(res),
-      error: err => console.log(err)
+    return forkJoin([pokemon,name]).subscribe(res => {
+      this.pokemon = res
+      console.log(this.pokemon)
     })
-
   }
 }
