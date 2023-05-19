@@ -10,16 +10,19 @@ export class PokeListComponent implements OnInit {
 
     private setAllPokemons: any;
     public getAllPokemons: any;
+    public apiError:boolean = false;
 
     constructor(private pokeApiService: PokeApiService) {}
 
     ngOnInit(): void {
       this.pokeApiService.apiListAllPokemons.subscribe({
         next: res => {
-          this.setAllPokemons = res.results;
-          this.getAllPokemons = this.setAllPokemons;
+           this.setAllPokemons = res.results;
+           this.getAllPokemons = this.setAllPokemons;
         },
-        error: err => console.log(err)
+        error: err => {
+          this.apiError = true
+        }
       });
     }
 
